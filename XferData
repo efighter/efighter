@@ -1,0 +1,44 @@
+	• Unable to run scripts against SharePoint Online(SPO)
+		○ Cause
+			§ Cant access WTW SPO via Avanade Laptop
+			§ Do not have PowerShell ISE or SharePoint Shell on Citrix box
+		○ Solution
+			§ Need to have access to RDP into a server
+			§ Server must have PowerShell ISE
+			§ SharePoint Shell
+			§ Visual Studio Code text editor or similar
+	• Need Access to wtwonlineuk sites(SCA level)
+		○ https://wtwonlineuk.sharepoint.com/sites/tctclient_627777_cathietic
+		○ https://wtwonlineuk.sharepoint.com/sites/tctclient_1011111_willandc
+	• Need Access to Raviwtw sites(SCA level)
+		○ https://raviwtw.sharepoint.com/sites/tctclient_1000_test562d
+		○ https://raviwtw.sharepoint.com/sites/tctclient_1000_tctreleas
+		○ https://raviwtw.sharepoint.com/sites/tctclient_1000_testingre
+		○ https://raviwtw.sharepoint.com/sites/tctclient_1000_release531
+		○ https://raviwtw.sharepoint.com/sites/tctclient_624375_myfprojr51
+	• another
+
+
+Eli.Chavez@willistowerswatson.com
+Eli.Chavez@towerswatson.com
+ELI831906_ADM
+
+
+https://access.willistowerswatson.com/ 
+
+
+==this is the spot where it goes==
+
+https://raviwtw.sharepoint.com/sites/tctclient_1000_test562d
+https://raviwtw.sharepoint.com/sites/tctclient_1000_tctreleas
+https://raviwtw.sharepoint.com/sites/tctclient_1000_testingre
+https://raviwtw.sharepoint.com/sites/tctclient_1000_release531
+https://raviwtw.sharepoint.com/sites/tctclient_624375_myfprojr51
+______________________________________________________________________
+
+
+Eli.Chavez@raviwtw.onmicrosoft.com
+
+
+https://wtwonlineuk.sharepoint.com/sites/tctclient_627777_cathietic
+https://wtwonlineuk.sharepoint.com/sites/tctclient_1011111_willandc
