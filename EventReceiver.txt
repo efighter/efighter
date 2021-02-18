@@ -1,0 +1,48 @@
+$SiteURL="https://wtwonlineuk.sharepoint.com/sites/tctclient_627777_cathietic"
+$UserName="will8077adm@towerswatson.com"
+$Password = Read-host
+ 
+$SecurePassword = ConvertTo-SecureString -String $Password -AsPlainText -Force
+$Cred = New-Object -TypeName System.Management.Automation.PSCredential -argumentlist $UserName, $SecurePassword
+ 
+#Connect to PNP Online
+Connect-PnPOnline -Url $SiteURL -Credentials $Cred
+
+write-host "Connecting to site" $siteUrl
+Connect-PnPOnline $siteUrl -Credential $Cred
+
+write-host "Retriving event receiver" -ForegroundColor DarkGreen
+
+
+$eventReceivers = Get-PnPList | Where-Object { $_.Hidden -eq $false -and $_.BaseType -eq "DocumentLibrary" -and $_.Title -notin $excludedList } | ForEach-Object{
+    Get-PnPEventReceiver -List $_.Title | Where-Object { $_.ReceiverName -eq "ContentEnrichmentRemoteEventReceiver" }
+}
+
+write-host "Total Event Receivers: $($eventReceivers.Count)" -ForegroundColor Green
+
+foreach($receiver in $eventReceivers)
+{
+    write-host " "
+    write-host "..:: Found Event Receiver ::.. " -ForegroundColor Yellow
+    write-host " - " $receiver.ReceiverName -ForegroundColor cyan
+    write-host "     - " $receiver.ReceiverId -ForegroundColor Green
+    #write-host "     - " $receiver.ListTitle -ForegroundColor Green
+    write-host "     -   about to remove event reciever" -ForegroundColor Green -BackgroundColor black
+    #remove-PnPEventReceiver -Identity $receiver.ReceiverId -Force
+    write-host "     -   event reciever has been removed" -ForegroundColor Green -BackgroundColor black
+}
+
+$eventReceiversafterRemove = Get-PnPList | Where-Object { $_.Hidden -eq $false -and $_.BaseType -eq "DocumentLibrary" -and $_.Title -notin $excludedList } | ForEach-Object{
+    Get-PnPEventReceiver -List $_.Title | Where-Object { $_.ReceiverName -eq "ContentEnrichmentRemoteEventReceiver" }
+}
+
+write-host "Total Event Receivers after attempted remove: $($eventReceiversafterRemove.Count)" -ForegroundColor Green
+
+foreach($receiverar in $eventReceiversafterRemove)
+{
+    write-host " "
+    write-host "..:: Found Event Receiver ::.. " -ForegroundColor Yellow
+    write-host " - " $receiver.ReceiverName -ForegroundColor cyan
+    write-host "     - " $receiver.ReceiverId -ForegroundColor Green
+    #write-host "     - " $receiver.ListTitle -ForegroundColor Green
+}
